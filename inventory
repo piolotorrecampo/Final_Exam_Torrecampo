@@ -1,0 +1,5 @@
+[centos]
+192.168.30.178 ansible_user=cserver
+
+[ubuntu]
+192.168.30.179 ansible_user=userver

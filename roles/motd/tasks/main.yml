@@ -1,0 +1,10 @@
+- import_tasks: configure.yml
+
+
+- block: 
+  - name: Verifying the contents of /etc/motd 
+    shell: cat /etc/motd
+    register: motd_content
+    
+  - debug: 
+      msg="{{ motd_content }}"

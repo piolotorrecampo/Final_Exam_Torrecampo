@@ -1,0 +1,20 @@
+- name: Installing LAMP server components
+  yum:
+    name: "{{ item }}"
+  with_items:
+    - httpd
+    - mariadb-server
+    - mariadb
+    - php
+    - php-mysql
+    - python2-PyMySQL
+ 
+- name: Start service
+  service:
+    name: "{{ item }}"
+    state: started
+    enabled: true
+  with_items:
+    - httpd
+    - mariadb
+

@@ -1,0 +1,19 @@
+- import_tasks: install.yml
+- import_tasks: configure.yml
+
+- block: 
+  - name: Verifying httpd service
+    shell: systemctl status httpd.service
+    register: httpd_service
+    
+  - debug: 
+      msg="{{ httpd_service }}"
+
+- block: 
+  - name: Verifying mariadb service 
+    shell: systemctl status mariadb
+    register: mariadb_service
+    
+  - debug: 
+      msg="{{ mariadb_service }}"
+

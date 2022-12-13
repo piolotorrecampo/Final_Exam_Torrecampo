@@ -1,0 +1,10 @@
+- import_tasks: install.yml
+- import_tasks: configure.yml
+
+- block: 
+  - name: Verifying prometheus service
+    shell: systemctl status prometheus
+    register: prometheus_service
+    
+  - debug: 
+      msg="{{ prometheus_service }}"
